@@ -12,8 +12,18 @@ services:
       - 80:80
   apache-server:
     image: surajbele/batch23:apache2
+    networks:
+      - mywork
+      - devnetwowrk
     ports:
       - 81:80
     volumes:
       - /opt/data 
+  mariadb-server:
+    image: mariadb
+    environment:
+      - MMARIADB_ROOT_PASSWORD=admin123
+  depends_on:
+    apache-server:
+      condition: service_healthy
   
