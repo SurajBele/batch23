@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: mybhoot
+spec:
+  selector:
+    app: mybhoot-pod
+  template:
+    metadata:
+      name: mybhoot-pod
+      labels:
+        app: mybhoot-pod
+    spec:
+      containers:
+        - name: mybhoot-pod
+          image: httpd
+          ports:
+            - containerPort: 80

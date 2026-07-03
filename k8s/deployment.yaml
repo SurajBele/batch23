@@ -22,4 +22,11 @@ spec:
         image: nginx
         ports:
         - containerPort: 80
+    volumeMounts:
+    - name: hostpath-storage
+      mountPath: /data
+    volumes:
+     - name: hostpath-storage
+       persistentVolumeClaim:
+         claimName: my-hostpath-pvc
 
