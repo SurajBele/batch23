@@ -4,7 +4,10 @@ metadata:
   name: myapp3
 spec:
   strategy:
-    type: Recreate  
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1       # Temporarily allows 1 extra pod to be created
+      maxUnavailable: 0 # Ensures no pods are taken offline before new ones are ready
   replicas: 5
   selector:
     matchLabels:
