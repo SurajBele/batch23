@@ -10,5 +10,4 @@
         - ReadWriteOnce
       persistentVolumeReclaimPolicy: Retain
       hostPath:
-        path: /mnt/mydata
-        type: DirectoryOrCreate # Optional: creates the directory if it doesn't exist
+        path: /opt/data
