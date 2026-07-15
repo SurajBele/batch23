@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: myvariable
+data:
+  MARIADB_ROOT_PASSWORD: admin123
+  department: devops
+  user: suraj

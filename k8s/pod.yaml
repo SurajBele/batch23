@@ -8,16 +8,21 @@ metadata:
 spec:
   containers:
   - name: myapp
-    image: surajbele/batch23:httpd-v1
-    resources:
-      limits:
-        memory: "128Mi"
-        cpu: "500m"
+    image: mariadb
+    # env:
+    #  - name: MARIADB_ROOT_PASSWORD
+    #    valueFrom:
+    #       configMapKeyRef:
+    #         name: myvariable
+    #         key: MARIADB_ROOT_PASSWORD
+    #  - name: department
+    #    valueFrom:
+    #       configMapKeyRef:
+    #         name: myvariable
+    #         key: department
+    envFrom:
+      - configMapRef:
+          name: myvariable
+
     ports:
       - containerPort: 80
-
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: database

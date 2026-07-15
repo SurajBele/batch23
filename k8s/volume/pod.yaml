@@ -5,7 +5,10 @@ metadata:
 spec:
   containers:
   - name: my-container
-    image: httpd
+    image: mariadb
+  env:
+    - name: MARIADB_ROOT_PASSWORD
+      value: admin123
     volumeMounts:
     - name: hostpath-storage
       mountPath: /usr/local/apache2/htdocs
