@@ -27,6 +27,7 @@ pipeline {
                 waitForQualityGate abortPipeline: false, credentialsId: 'sonar-token'
                 echo "gate check successful"
             }
+        }
         stage('Deploy') { 
             steps {
                 echo "deploy successful"
